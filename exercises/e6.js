@@ -5,7 +5,15 @@
 
 export function getClientWithNoMoney(array) {
   // Your code goes here...
-
+  let namesWithZeroBalance = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].balance == 0) {
+      namesWithZeroBalance.push(array[i].name);
+    }
+  }
+  if (namesWithZeroBalance == []) {
+    namesWithZeroBalance = undefined;
+  }
 }
 
 // === TEST YOURSELF ===
