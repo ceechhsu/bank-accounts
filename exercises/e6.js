@@ -11,9 +11,7 @@ export function getClientWithNoMoney(array) {
       namesWithZeroBalance.push(array[i].name);
     }
   }
-  if (namesWithZeroBalance == []) {
-    namesWithZeroBalance = undefined;
-  }
+  return namesWithZeroBalance;
 }
 
 // === TEST YOURSELF ===
