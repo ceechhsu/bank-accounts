@@ -7,23 +7,20 @@
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
   const accountsWithWrongBalance = [];
-  let sumOfWithdrawals = 0;
-  let sumOfDeposits = 0;
-
   for (let account of array) {
+    let sumOfWithdrawals = 0;
+    let sumOfDeposits = 0;
     if (account.withdrawals != null) {
-      sumOfWithdrawals = account.withdrawals.reduce(
-        (accum, currentValue) => accum + currentValue,
-        0
-      );
+      for (const withdrawal of account.withdrawals) {
+        sumOfWithdrawals = sumOfWithdrawals + withdrawal;
+      }
     } else {
       sumOfWithdrawals = 0;
     }
     if (account.deposits != null) {
-      sumOfDeposits = account.deposits.reduce(
-        (accum, currentValue) => accum + currentValue,
-        0
-      );
+      for (const deposit of account.deposits) {
+        sumOfDeposits = sumOfDeposits + deposit;
+      }
     } else {
       sumOfDeposits = 0;
     }

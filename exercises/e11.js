@@ -8,10 +8,10 @@ export function getAllWithdrawals(array) {
   let arrayOfSums = [];
   for (let person of array) {
     if (person.withdrawals != null) {
-      const sum = person.withdrawals.reduce(
-        (accum, currentValue) => accum + currentValue,
-        0
-      );
+      let sum = 0;
+      for (const withdrawal of person.withdrawals) {
+        sum = sum + withdrawal;
+      }
       arrayOfSums.push(sum);
     } else {
       arrayOfSums.push(0);
