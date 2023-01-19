@@ -1,4 +1,3 @@
-
 // EXERCISE 16
 // Please, read the exercise-info/flat.md to get the initial data of what is the expected result of this exercise.
 // Array example: flatArraysData in /data/data.js
@@ -7,10 +6,18 @@
 
 export function flatArrays(array) {
   // Your code goes here...
-
+  const result = [];
+  for (const element of array) {
+    if (Array.isArray(element)) {
+      for (const el of element) {
+        result.push(el);
+      }
+    } else {
+      result.push(element);
+    }
+  }
+  return result;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-16"

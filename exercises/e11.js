@@ -5,7 +5,19 @@
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
-
+  let arrayOfSums = [];
+  for (let person of array) {
+    if (person.withdrawals != null) {
+      const sum = person.withdrawals.reduce(
+        (accum, currentValue) => accum + currentValue,
+        0
+      );
+      arrayOfSums.push(sum);
+    } else {
+      arrayOfSums.push(0);
+    }
+  }
+  return arrayOfSums;
 }
 
 // === TEST YOURSELF ===
