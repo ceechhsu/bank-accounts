@@ -18,7 +18,6 @@ export function getClientsWithWrongBalance(array) {
     for (const deposit of deposits) {
       sumOfDeposits += deposit;
     }
-    console.log(account.balance, sumOfDeposits, sumOfWithdrawals);
     if (account.balance != sumOfDeposits - sumOfWithdrawals) {
       console.log("true");
       accountsWithWrongBalance.push(account);
