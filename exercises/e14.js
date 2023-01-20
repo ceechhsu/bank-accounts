@@ -10,21 +10,17 @@ export function getClientsWithWrongBalance(array) {
   for (let account of array) {
     let sumOfWithdrawals = 0;
     let sumOfDeposits = 0;
-    if (account.withdrawals != null) {
-      for (const withdrawal of account.withdrawals) {
-        sumOfWithdrawals = sumOfWithdrawals + withdrawal;
-      }
-    } else {
-      sumOfWithdrawals = 0;
+    let withdrawals = account.withdrawals ? account.withdrawals : [0];
+    let deposits = account.deposits ? account.deposits : [0];
+    for (const withdrawal of withdrawals) {
+      sumOfWithdrawals += withdrawal;
     }
-    if (account.deposits != null) {
-      for (const deposit of account.deposits) {
-        sumOfDeposits = sumOfDeposits + deposit;
-      }
-    } else {
-      sumOfDeposits = 0;
+    for (const deposit of deposits) {
+      sumOfDeposits += deposit;
     }
+    console.log(account.balance, sumOfDeposits, sumOfWithdrawals);
     if (account.balance != sumOfDeposits - sumOfWithdrawals) {
+      console.log("true");
       accountsWithWrongBalance.push(account);
     }
   }
